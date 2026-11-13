@@ -30,6 +30,10 @@ p{margin:0 0 1rem}
 .mut{color:var(--mut)}
 .lead{font-size:1.25rem;max-width:32rem;color:var(--mut)}
 .net{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.cinematic-light{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .65s ease;background:radial-gradient(ellipse at 8% 12%,#ff287e99,transparent 55%),radial-gradient(ellipse at 85% 18%,#7439ff99,transparent 55%),radial-gradient(ellipse at 15% 85%,#00cbbf88,transparent 55%),radial-gradient(ellipse at 90% 90%,#ffb52e99,transparent 55%);-webkit-mask-image:radial-gradient(ellipse 460px 380px at var(--light-x,50%) var(--light-y,50%),#000 0%,#0009 35%,transparent 100%);mask-image:radial-gradient(ellipse 460px 380px at var(--light-x,50%) var(--light-y,50%),#000 0%,#0009 35%,transparent 100%)}
+.cinematic-light.is-active{opacity:.65}
+@media(prefers-reduced-motion:reduce){.cinematic-light{transition:none}}
+@media(hover:none),(pointer:coarse){.cinematic-light{display:none}}
 main{position:relative;z-index:1}
 .f{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem}
 .f button{background:none;border:0;padding:.4rem 0;min-height:44px;font:inherit;color:var(--mut);cursor:pointer}
@@ -63,6 +67,7 @@ dt{color:var(--mut)}dd{margin:0}
 </style>
 </head>
 <body>
+<div class="cinematic-light" aria-hidden="true"></div>
 <canvas id="net" class="net" aria-hidden="true"></canvas>
 <header><div class="w"><a class="n" href="#top">Secret Space</a><a href="#whats-on">What’s on</a><a href="#hire">Hire</a><a href="#visit">Visit</a></div></header>
 <main id="top"><div class="w">
@@ -157,6 +162,14 @@ $('#dc').onclick=function(){$('#dlg').close()};$('#db').onclick=function(x){x.pr
 $('#dlg').addEventListener('click',function(x){if(x.target===this)this.close()});
 $('#enq').onsubmit=function(x){x.preventDefault();$('#ok').style.display='block';this.reset()};
 $('#nl').onsubmit=function(x){x.preventDefault();$('#nlok').style.display='block';this.reset()};
+(function(){
+var light=$('.cinematic-light'),fine=matchMedia('(hover:hover) and (pointer:fine)'),reduced=matchMedia('(prefers-reduced-motion:reduce)'),frame=0,x=0,y=0,targetX=0,targetY=0,active=false;
+function paint(){light.style.setProperty('--light-x',x+'px');light.style.setProperty('--light-y',y+'px')}
+function step(){frame=0;if(!active)return;var dx=targetX-x,dy=targetY-y;if(reduced.matches||Math.abs(dx)+Math.abs(dy)<.5){x=targetX;y=targetY;paint();return}x+=dx*.14;y+=dy*.14;paint();frame=requestAnimationFrame(step)}
+function hide(){active=false;light.classList.remove('is-active');cancelAnimationFrame(frame);frame=0}
+addEventListener('pointermove',function(e){if(!fine.matches||e.pointerType==='touch')return;targetX=e.clientX;targetY=e.clientY;if(!active){x=targetX;y=targetY;active=true;paint();light.classList.add('is-active')}if(!frame)frame=requestAnimationFrame(step)},{passive:true});
+document.documentElement.addEventListener('pointerleave',hide);addEventListener('blur',hide);document.addEventListener('visibilitychange',function(){if(document.hidden)hide()});fine.addEventListener('change',hide);
+})();
 (function(){var cv=$('#net'),cx=cv.getContext('2d'),S=40,W,H,cols,rows,ox,oy,t=0,col='#000',hx,hy,tx=null,ty=null,last=0,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function ink(){col=getComputedStyle(document.documentElement).getPropertyValue('--ink').trim()||'#000'}
 function size(){var d=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);cols=Math.floor(W/S)+1;rows=Math.floor(H/S)+1;ox=(W-(cols-1)*S)/2;oy=(H-(rows-1)*S)/2;if(hx===undefined){hx=W/2;hy=H/2}ink();draw()}
