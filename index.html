@@ -174,6 +174,13 @@ main .ev .t{font-size:1.0625rem;font-weight:600}
 .compact-headline .headline-finish{display:block;font-style:italic;font-weight:600;line-height:1.04;letter-spacing:-.065em;margin:0}
 @media(max-width:700px){.ss-hero-shell .hero .content h1.compact-headline{font-size:clamp(2.9rem,11.2vw,4.8rem);margin:2rem 0 1.3rem}.compact-headline .headline-intro{font-size:.66em;line-height:1.05;margin-bottom:.07em}}
 
+
+/* Continuously shifting cinematic colour on the large footer wordmark. */
+@supports ((background-clip:text) or (-webkit-background-clip:text)){
+.footer-end .wordmark{background-image:linear-gradient(110deg,#831b28 0%,#e43525 14%,#bf7508 28%,#006e79 43%,#304b9a 58%,#783b85 72%,#be3b34 86%,#831b28 100%);background-size:350% 200%;background-position:0% 50%;background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:footer-cinema 18s ease-in-out infinite}
+}
+@keyframes footer-cinema{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
 </style>
 
 </head>
