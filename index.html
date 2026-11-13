@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en-GB" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -51,8 +51,6 @@ textarea{border:1px solid var(--ink);padding:.6rem;border-radius:2px}
 .ok{display:none;font-weight:600}
 footer{padding:5rem 0 3rem;color:var(--mut);font-size:.95rem}
 footer a{margin-right:1.2rem}
-.wordmark{display:block;margin:2.5rem 0 0;padding:0 1.5rem;overflow:hidden;color:var(--ink);font-size:clamp(1rem,12.8vw,18rem);font-weight:600;line-height:.85;letter-spacing:-.065em;white-space:nowrap;text-align:center;user-select:none}
-.footer-end{padding-bottom:1.5rem}
 dialog{width:min(34rem,calc(100% - 1.5rem));background:var(--bg);color:var(--ink);border:1px solid var(--ink);border-radius:2px;padding:1.6rem}
 dialog::backdrop{background:rgba(0,0,0,.5)}
 dialog h2{color:var(--ink);font-size:1.6rem;letter-spacing:-.02em;margin:.2rem 0 1rem}
@@ -62,18 +60,29 @@ dt{color:var(--mut)}dd{margin:0}
 #ck{position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom,0px));max-width:34rem;margin:0 auto;background:var(--bg);border:1px solid var(--ink);padding:1rem;display:none;z-index:30}
 #ck p{font-size:.95rem;margin-bottom:.8rem}
 #ck div{display:flex;gap:.6rem;flex-wrap:wrap}
+
+:root[data-theme="dark"]{--bg:#101010;--ink:#f4f0e7;--mut:#a6a39b;--line:#f4f0e72c}
+.ss-hero-shell{position:relative;z-index:2;background:#101010;color:#f4f0e7;font-family:'Space Grotesk',Arial,sans-serif}
+main>.w{max-width:70rem;padding:0 5%}main section{padding-top:5rem}main h2{font:400 clamp(30px,4vw,48px)/1.15 'Anton',Impact,sans-serif;color:var(--ink);text-transform:uppercase;letter-spacing:.2px;margin-bottom:1.8rem}main p{max-width:48rem}main .cta{background:#ff1881;color:#101010;border-radius:0;font-weight:700}main .cta.o{background:transparent;color:var(--ink)}main .f button[aria-pressed="true"]{color:#f8e523}main .ev{padding:1.5rem 0;grid-template-columns:6.5rem 1fr auto}main .ev:hover{background:#ffffff05}main .ev .t{font-size:1.15rem}main .ev>span:last-child{color:#f8e523}main #hire{border-top:1px solid var(--line);margin-top:4.5rem}main form{max-width:48rem}main input:focus,main textarea:focus{outline-color:#ff1881}main footer{border-top:1px solid var(--line);margin-top:4rem;padding-top:2rem}.ss-hero-shell .content{max-width:760px;z-index:1}.ss-hero-shell .content h1{color:var(--paper)}.ss-hero-shell .content h1 .unexpected{color:var(--yellow)}.ss-hero-shell .hero .content{padding:0}.ss-hero-shell .hero{padding:0;height:calc(100svh - 62px)}.ss-hero-shell header.nav{position:relative;top:auto;background:transparent}@media(max-width:700px){main>.w{padding:0 6%}main .ev{grid-template-columns:4rem 1fr auto;gap:.6rem}main .ev .t{font-size:1rem}.ss-hero-shell .hero{height:auto}}
+
+@scope (.ss-hero-shell){
+:scope{--pink:#ff1881;--yellow:#f8e523;--paper:#f4f0e7;--black:#101010}*{box-sizing:border-box}:scope{scroll-behavior:smooth;scroll-padding-top:90px}:scope{margin:0;background:var(--black);color:var(--paper);font-family:'Space Grotesk',Arial,sans-serif}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--yellow);outline-offset:5px}.hero{position:relative;isolation:isolate;min-height:850px;height:calc(100svh - 62px);max-height:1100px;overflow:hidden;background:#101010}.art{position:absolute;z-index:-3;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}.shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#101010db 0%,#10101080 34%,transparent 61%),linear-gradient(0deg,#101010 0%,transparent 22%,transparent 80%,#10101070)}.nav{display:flex;justify-content:space-between;align-items:center;padding:26px 4.2%;gap:28px}.brand{display:flex;align-items:center;gap:12px}.brandmark{border:2px solid var(--paper);padding:6px 8px 5px;font:26px/.86 'Anton',Impact,sans-serif;letter-spacing:-.5px;transform:rotate(-4deg)}.brandmark span{display:block}.brand-location{font:9px/1.5 'Space Grotesk',Arial;letter-spacing:2px;border-left:1px solid #ffffff42;padding-left:13px}.links{display:flex;gap:30px;align-items:center;font-size:11px;font-weight:600;letter-spacing:1.4px}.links a{transition:color .2s}.links a:hover{color:var(--yellow)}.nav-cta{border:1px solid #ffffff70;padding:13px 18px}.nav-cta span{margin-left:20px;color:var(--yellow)}.content{position:relative;margin:62px 4.2% 0;width:55%;max-width:760px}.eyebrow{display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:2.6px;font-weight:600}.live-dot{display:inline-block;width:6px;height:6px;background:var(--pink);border-radius:50%;box-shadow:0 0 14px #ff1881b0}.line{height:1px;width:34px;background:#ffffff60}h1{font:clamp(72px,7.8vw,126px)/.99 'Anton',Impact,sans-serif;letter-spacing:-2px;text-transform:uppercase;margin:26px 0 30px;font-weight:400}h1 .row{display:block}h1 .outline{color:transparent;-webkit-text-stroke:1px var(--paper)}h1 .unexpected{display:inline-block;color:var(--yellow);position:relative;z-index:0}h1 .unexpected::after{content:'';height:5px;position:absolute;left:1px;right:5px;bottom:-12px;background:var(--pink);transform:rotate(-2deg);clip-path:polygon(0 35%,85% 0,100% 60%,5% 100%)}.intro{font-size:14px;line-height:1.85;color:#c6c4be;max-width:350px;margin:34px 0 26px}.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;padding:17px 20px;font-size:11px;letter-spacing:1.3px;font-weight:700;border:1px solid #ffffff60;color:var(--paper);background:transparent}.btn.primary{background:var(--pink);color:#101010;border-color:var(--pink)}.btn:hover{background:var(--paper);color:var(--black);border-color:var(--paper)}.btn span{font-size:20px;line-height:10px}.micro{display:flex;gap:16px;align-items:center;margin-top:30px;font-size:9px;letter-spacing:1.5px;color:#aeaca7}.micro b{font-weight:400;color:#6d6b67}.sticker{position:absolute;right:5%;top:56%;background:var(--yellow);color:#0c0c0c;border-radius:50%;height:112px;width:112px;display:grid;place-content:center;text-align:center;transform:rotate(12deg);box-shadow:0 0 0 5px #111,0 0 0 6px #e6d520;font:24px/.96 'Barlow Condensed',Impact;font-weight:800}.sticker small{font:8px 'Space Grotesk';letter-spacing:1px;margin-bottom:5px}.sticker .star{font-size:17px;margin-top:5px}.hero-bottom{position:absolute;left:4.2%;right:4.2%;bottom:25px;display:flex;justify-content:space-between;align-items:end}.coordinates{font-size:9px;letter-spacing:1.8px;color:#93908a;line-height:1.9}.scroll{font-size:9px;letter-spacing:2px;display:flex;align-items:center;gap:18px}.scroll span{border:1px solid #ffffff40;width:32px;height:40px;border-radius:30px;display:grid;place-items:center;font-size:17px}.ticker{background:var(--yellow);color:#101010;height:62px;display:flex;justify-content:space-around;align-items:center;overflow:hidden;gap:28px;padding:0 30px;font:24px 'Barlow Condensed',Impact;font-weight:800;letter-spacing:.6px;white-space:nowrap}.ticker i{font-style:normal;color:#111;font-size:26px}.below{max-width:1300px;margin:auto;padding:90px 5% 100px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}.tag{font-size:10px;letter-spacing:2px;color:var(--pink)}h2{font:clamp(40px,5vw,72px)/1.06 'Anton',Impact;font-weight:400;margin:17px 0 25px;text-transform:uppercase}.below p{font-size:14px;color:#aaa79f;line-height:1.9}.below .btn{margin-top:15px}.photo{width:100%;height:330px;object-fit:cover;filter:grayscale(1);border:1px solid #ffffff22}.caption{display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;margin-top:14px;color:#999}footer{margin:0 5%;padding:26px 0;border-top:1px solid #ffffff24;display:flex;justify-content:space-between;gap:20px;font-size:10px;color:#777}.glow{position:fixed;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 10% 20%,#ff188190,transparent 65%),radial-gradient(ellipse at 85% 10%,#945affc0,transparent 65%),radial-gradient(ellipse at 85% 90%,#00e3d980,transparent 65%);mask-image:radial-gradient(ellipse 380px 340px at var(--x,50%) var(--y,50%),#000,transparent 85%);opacity:0;transition:opacity .6s;mix-blend-mode:screen}.glow.active{opacity:.6}dialog{background:#151515;color:var(--paper);border:1px solid #ffffff35;width:min(540px,92vw);padding:36px}dialog::backdrop{background:#000b;backdrop-filter:blur(8px)}dialog h2{font-size:40px}dialog label{display:block;font-size:12px;margin-top:20px;color:#ccc}dialog input,dialog textarea{display:block;width:100%;padding:12px;background:#202020;border:1px solid #ffffff40;color:#fff;margin-top:8px}dialog .btn{margin-top:20px}dialog .close{position:absolute;right:14px;top:10px;background:none;border:0;color:#fff;font-size:26px}.status{font-size:12px;line-height:1.6;color:var(--yellow)}@media(min-width:1600px){.content{margin-top:100px}.hero{min-height:950px}}@media(max-width:1000px){.hero{min-height:820px}.content{width:65%}.links{gap:18px}.sticker{right:4%;top:65%}}@media(max-width:700px){.nav{padding:22px 6%;align-items:start}.brand-location{display:none}.links>a:not(.nav-cta){display:none}.links{font-size:9px}.nav-cta{padding:12px}.hero{min-height:850px;height:auto}.art{object-position:65% center;opacity:.65}.shade{background:linear-gradient(90deg,#101010f2,#10101055),linear-gradient(0deg,#101010,transparent 40%)}.content{margin:70px 6% 160px;width:88%;max-width:520px}h1{font-size:clamp(66px,13.5vw,95px);letter-spacing:-1px}.intro{font-size:13px;max-width:300px}.eyebrow{font-size:9px;letter-spacing:1.8px}.btn{font-size:10px;padding:16px}.sticker{width:78px;height:78px;top:auto;bottom:85px;right:8%;font-size:18px}.sticker small{font-size:6px}.hero-bottom{left:6%;right:6%}.scroll{display:none}.ticker{justify-content:flex-start;height:52px;font-size:20px}.below{padding:60px 6%;grid-template-columns:1fr;gap:30px}.photo{height:260px}.micro{gap:10px;font-size:8px}.coordinates{font-size:8px}footer{font-size:9px;line-height:1.6}}@media(prefers-reduced-motion:reduce){:scope{scroll-behavior:auto}.glow{transition:none}}
+}
+
+
+.ss-hero-shell .hero{background:radial-gradient(ellipse at 85% 40%,#29192366,transparent 55%),#101010}
+.wordmark{display:block;margin:2.5rem 0 0;padding:0 1.5rem;overflow:hidden;color:var(--ink);font-size:clamp(1rem,12.8vw,18rem);font-weight:600;line-height:.85;letter-spacing:-.065em;white-space:nowrap;text-align:center;user-select:none}
+.footer-end{padding-bottom:1.5rem}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <canvas id="net" class="net" aria-hidden="true"></canvas>
-<header><div class="w"><a class="n" href="#top">Secret Space</a><a href="#whats-on">What’s on</a><a href="#hire">Hire</a><a href="#visit">Visit</a></div></header>
+<div class="ss-hero-shell"><section class="hero" id="home"><div class="shade"></div><header class="nav"><a class="brand" href="#home" aria-label="Secret Space home"><span class="brandmark">SECRET<span>SPACE</span></span><span class="brand-location">DIGBETH<br>BIRMINGHAM</span></a><nav class="links" aria-label="Main navigation"><a href="#hire">THE SPACE</a><a href="#whats-on">WHAT'S ON ↗</a><a class="nav-cta" href="#hire">MAKE IT HAPPEN <span>↗</span></a></nav></header><div class="content"><div class="eyebrow"><i class="live-dot"></i> INDEPENDENT SPIRIT. DIGBETH SOUL.</div><h1><span class="row">A SPACE FOR</span><span class="row outline">THE</span><span class="row unexpected">UNEXPECTED.</span></h1><p class="intro">Big nights. Bold ideas. Whatever's next.<br>Four rooms in the heart of Digbeth.<br>One space to make it yours.</p><div class="actions"><a class="btn primary" href="#hire">HIRE THE SPACE <span>↗</span></a><a class="btn" href="#whats-on">SEE WHAT’S ON <span>↓</span></a></div><div class="micro">4 ROOMS <b>/</b> LICENSED VENUE <b>/</b> DIGBETH, BHX</div>
+</div><div class="hero-bottom"><div class="coordinates">BIRMINGHAM'S CREATIVE QUARTER<br>52.473° N &nbsp; 1.881° W</div><a class="scroll" href="#hire">THERE'S MORE TO THIS SPACE <span>↓</span></a></div></section><div class="ticker" aria-label="Events, live music, markets, film shoots, private hire"><span>LIVE MUSIC</span><i>✦</i><span>MARKETS & POP-UPS</span><i>✦</i><span>FILM & PHOTO</span><i>✦</i><span>PRIVATE HIRE</span><i>✦</i><span>THE UNEXPECTED</span></div></div>
 <main id="top"><div class="w">
 
-<h1>A blank canvas in Digbeth.</h1>
-<p class="lead">An independent, licensed warehouse with four rooms. Events, filming and private hire.</p>
-<div class="f"><a class="cta" href="#whats-on">See what’s on</a><a class="cta o" href="#hire">Hire the space</a></div>
-
-<section id="whats-on">
+<section id="whats-on" class="illustrated events-section">
 <h2>What’s on</h2>
 <div class="f" role="group" aria-label="Filter events">
 <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="Music">Music</button><button aria-pressed="false" data-f="Markets">Markets</button><button aria-pressed="false" data-f="Social">Social</button><button aria-pressed="false" data-f="Sunday">Sunday Sessions</button>
@@ -83,12 +92,12 @@ dt{color:var(--mut)}dd{margin:0}
 <p class="mut" style="font-size:.9rem;margin-top:1rem">Sample listings for the prototype.</p>
 </section>
 
-<section>
+<section class="illustrated past-section">
 <h2>Past events</h2>
 <p>MMA, boxing, the BBC, bingo, vintage clothes, a jungle plant pop-up, a craft beer festival, music videos, the Sistine Chapel exhibition and a Royal Birmingham Conservatoire opera. Who knows what’s next.</p>
 </section>
 
-<section id="hire">
+<section id="hire" class="illustrated hire-section">
 <h2>Hire the space</h2>
 <p>For events, parties, pop-ups and filming. Tell us what you have in mind and we’ll reply within one working day.</p>
 <form id="enq" aria-label="Hire enquiry">
@@ -102,7 +111,7 @@ dt{color:var(--mut)}dd{margin:0}
 </form>
 </section>
 
-<section>
+<section class="illustrated newsletter-section">
 <h2>Newsletter</h2>
 <p>Early tickets and discounted drinks. NHS and emergency services staff get discounts on Sunday Sessions.</p>
 <form id="nl" aria-label="Newsletter" style="margin-top:0">
@@ -112,7 +121,7 @@ dt{color:var(--mut)}dd{margin:0}
 </form>
 </section>
 
-<section id="visit">
+<section id="visit" class="illustrated visit-section">
 <h2>Visit</h2>
 <p>30-34 River Street<br>Digbeth, Birmingham B5 5SA</p>
 <p class="mut">Opening times and transport to confirm.</p>
@@ -123,9 +132,7 @@ dt{color:var(--mut)}dd{margin:0}
 <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="#" id="mc">Manage cookies</a>
 <p style="margin-top:1rem">Photography by Adrian Pym.</p>
 </footer>
-</div>
-<div class="footer-end"><span class="wordmark">SECRET SPACE</span></div>
-</main>
+</div><div class="footer-end"><span class="wordmark">SECRET SPACE</span></div></main>
 
 <dialog id="dlg" aria-labelledby="dt">
 <span class="mut" id="dtag"></span>
@@ -186,6 +193,9 @@ if(!seen)C.style.display='block';
 function set(v){try{localStorage.setItem('ss-consent',v)}catch(e){}C.style.display='none'}
 $('#ca').onclick=function(){set('all')};$('#cr').onclick=function(){set('essential')};
 $('#mc').onclick=function(x){x.preventDefault();C.style.display='block'};
+</script>
+<div class="ss-hero-shell"><div class="glow" aria-hidden="true"></div></div>
+<script>const glow=document.querySelector('.glow'),fine=matchMedia('(hover:hover) and (pointer:fine)'),reduce=matchMedia('(prefers-reduced-motion:reduce)');let frame=0,active=false,x=0,y=0,tx=0,ty=0;function paint(){glow.style.setProperty('--x',x+'px');glow.style.setProperty('--y',y+'px')}function tick(){frame=0;if(!active)return;const dx=tx-x,dy=ty-y;if(reduce.matches||Math.abs(dx)+Math.abs(dy)<.5){x=tx;y=ty;paint();return}x+=dx*.12;y+=dy*.12;paint();frame=requestAnimationFrame(tick)}function hide(){active=false;glow.classList.remove('active');cancelAnimationFrame(frame);frame=0}addEventListener('pointermove',e=>{if(!fine.matches)return;tx=e.clientX;ty=e.clientY;if(!active){x=tx;y=ty;active=true;paint();glow.classList.add('active')}if(!frame)frame=requestAnimationFrame(tick)},{passive:true});document.documentElement.addEventListener('pointerleave',hide);addEventListener('blur',hide);document.addEventListener('visibilitychange',()=>{if(document.hidden)hide()});
 </script>
 </body>
 </html>
