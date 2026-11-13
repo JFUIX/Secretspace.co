@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Secret Space Digbeth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAFAF8;--ink:#141414;--mut:#6B6963;--line:#14141426;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141414;--ink:#F2F1EE;--mut:#9E9B94;--line:#F2F1EE33}}
+:root[data-theme="dark"]{--bg:#141414;--ink:#F2F1EE;--mut:#9E9B94;--line:#F2F1EE33}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Instrument Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit;text-underline-offset:.2em}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.w{max-width:44rem;margin:0 auto;padding:0 1.5rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:20}
+header .w{display:flex;gap:1.5rem;align-items:center;min-height:64px}
+header .n{margin-right:auto;font-weight:600;text-decoration:none}
+header a{text-decoration:none}
+header a:hover{text-decoration:underline}
+section{padding:4.5rem 0 0}
+h1{font-weight:600;font-size:clamp(2.4rem,8vw,4.2rem);line-height:1.05;letter-spacing:-.03em;margin:3rem 0 1.2rem}
+h2{font-weight:600;font-size:1.05rem;margin:0 0 1.2rem;color:var(--mut)}
+p{margin:0 0 1rem}
+.mut{color:var(--mut)}
+.lead{font-size:1.25rem;max-width:32rem;color:var(--mut)}
+.net{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1}
+.f{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:1rem}
+.f button{background:none;border:0;padding:.4rem 0;min-height:44px;font:inherit;color:var(--mut);cursor:pointer}
+.f button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:.35em}
+.ev{display:grid;grid-template-columns:4.5rem 1fr auto;gap:1rem;align-items:baseline;padding:1.1rem 0;border-top:1px solid var(--line);cursor:pointer}
+.ev:last-of-type{border-bottom:1px solid var(--line)}
+.ev:hover .t{text-decoration:underline;text-underline-offset:.2em}
+.ev .d{color:var(--mut)}
+.ev .t{font-weight:600}
+.ev .s{color:var(--mut);font-size:.95rem}
+.cta{display:inline-block;font:600 1rem "Instrument Sans",sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:2px;padding:.8rem 1.4rem;min-height:44px;text-decoration:none;cursor:pointer}
+.cta.o{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+form{display:grid;gap:1.2rem;margin-top:1.5rem}
+label{display:grid;gap:.3rem;font-size:.95rem;color:var(--mut)}
+input,select,textarea{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);border-radius:0;padding:.6rem 0;min-height:44px;width:100%}
+textarea{border:1px solid var(--ink);padding:.6rem;border-radius:2px}
+.r{display:grid;gap:1.2rem}
+@media(min-width:640px){.r{grid-template-columns:1fr 1fr}}
+.ok{display:none;font-weight:600}
+footer{padding:5rem 0 3rem;color:var(--mut);font-size:.95rem}
+footer a{margin-right:1.2rem}
+dialog{width:min(34rem,calc(100% - 1.5rem));background:var(--bg);color:var(--ink);border:1px solid var(--ink);border-radius:2px;padding:1.6rem}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog h2{color:var(--ink);font-size:1.6rem;letter-spacing:-.02em;margin:.2rem 0 1rem}
+dl{display:grid;grid-template-columns:auto 1fr;gap:.3rem 1.2rem;margin:0 0 1.2rem}
+dt{color:var(--mut)}dd{margin:0}
+.dbar{display:flex;gap:.8rem;margin-top:1.4rem}
+#ck{position:fixed;left:.75rem;right:.75rem;bottom:calc(.75rem + env(safe-area-inset-bottom,0px));max-width:34rem;margin:0 auto;background:var(--bg);border:1px solid var(--ink);padding:1rem;display:none;z-index:30}
+#ck p{font-size:.95rem;margin-bottom:.8rem}
+#ck div{display:flex;gap:.6rem;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<canvas id="net" class="net" aria-hidden="true"></canvas>
+<header><div class="w"><a class="n" href="#top">Secret Space</a><a href="#whats-on">What’s on</a><a href="#hire">Hire</a><a href="#visit">Visit</a></div></header>
+<main id="top"><div class="w">
+
+<h1>A blank canvas in Digbeth.</h1>
+<p class="lead">An independent, licensed warehouse with four rooms. Events, filming and private hire.</p>
+<div class="f"><a class="cta" href="#whats-on">See what’s on</a><a class="cta o" href="#hire">Hire the space</a></div>
+
+<section id="whats-on">
+<h2>What’s on</h2>
+<div class="f" role="group" aria-label="Filter events">
+<button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="Music">Music</button><button aria-pressed="false" data-f="Markets">Markets</button><button aria-pressed="false" data-f="Social">Social</button><button aria-pressed="false" data-f="Sunday">Sunday Sessions</button>
+</div>
+<div id="list"></div>
+<p class="mut" id="empty" style="display:none">Nothing here yet. Join the newsletter to hear first.</p>
+<p class="mut" style="font-size:.9rem;margin-top:1rem">Sample listings for the prototype.</p>
+</section>
+
+<section>
+<h2>Past events</h2>
+<p>MMA, boxing, the BBC, bingo, vintage clothes, a jungle plant pop-up, a craft beer festival, music videos, the Sistine Chapel exhibition and a Royal Birmingham Conservatoire opera. Who knows what’s next.</p>
+</section>
+
+<section id="hire">
+<h2>Hire the space</h2>
+<p>For events, parties, pop-ups and filming. Tell us what you have in mind and we’ll reply within one working day.</p>
+<form id="enq" aria-label="Hire enquiry">
+<div class="r"><label>Name<input required autocomplete="name"></label><label>Email<input type="email" required autocomplete="email"></label></div>
+<div class="r"><label>Phone<input type="tel" autocomplete="tel"></label><label>Type<select><option>Event or party</option><option>Filming or shoot</option><option>Pop-up or market</option><option>Other</option></select></label></div>
+<div class="r"><label>Date<input type="date"></label><label>Guests<input type="number" min="1" inputmode="numeric"></label></div>
+<label>Message<textarea rows="4"></textarea></label>
+<div><button class="cta" type="submit">Send enquiry</button></div>
+<p class="ok" id="ok" role="status">Enquiry sent. We’ll be in touch soon.</p>
+<p class="mut" style="font-size:.9rem">Prototype: nothing is sent yet.</p>
+</form>
+</section>
+
+<section>
+<h2>Newsletter</h2>
+<p>Early tickets and discounted drinks. NHS and emergency services staff get discounts on Sunday Sessions.</p>
+<form id="nl" aria-label="Newsletter" style="margin-top:0">
+<label>Email<input type="email" required autocomplete="email"></label>
+<div><button class="cta" type="submit">Join</button></div>
+<p class="ok" id="nlok" role="status">You’re on the list.</p>
+</form>
+</section>
+
+<section id="visit">
+<h2>Visit</h2>
+<p>30-34 River Street<br>Digbeth, Birmingham B5 5SA</p>
+<p class="mut">Opening times and transport to confirm.</p>
+<p><a href="https://www.instagram.com/secretspace_digbeth/">Instagram</a></p>
+</section>
+
+<footer>
+<a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="#" id="mc">Manage cookies</a>
+<p style="margin-top:1rem">Photography by Adrian Pym.</p>
+</footer>
+</div></main>
+
+<dialog id="dlg" aria-labelledby="dt">
+<span class="mut" id="dtag"></span>
+<h2 id="dt"></h2>
+<dl id="df"></dl>
+<p id="dd"></p>
+<p class="mut" id="dn"></p>
+<div class="dbar"><a class="cta" href="#" id="db">Book tickets</a><button class="cta o" id="dc">Close</button></div>
+</dialog>
+
+<div id="ck" role="dialog" aria-label="Cookie consent"><p>We use cookies to measure traffic. Analytics stay off unless you accept.</p><div><button class="cta" id="ca">Accept all</button><button class="cta" id="cr">Reject non-essential</button></div></div>
+
+<script>
+var EV=[
+{d:'Sun 15 Nov',t:'Sunday Session',c:'Sunday',time:'Doors 2pm',price:'£8',room:'Main room',desc:'Our regular Sunday afternoon session with DJs and food. Sample copy.',nhs:1},
+{d:'Sat 21 Nov',t:'Vintage and Craft Market',c:'Markets',time:'Doors 11am',price:'Free',room:'Rooms 2 and 3',desc:'Vintage clothes, makers and street food. Sample copy.'},
+{d:'Sat 28 Nov',t:'Warehouse Bingo',c:'Social',time:'Doors 7pm',price:'£12',room:'Main room',desc:'Big prizes, loud music, a host with opinions. Sample copy.'},
+{d:'Sat 5 Dec',t:'Live at Secret Space',c:'Music',time:'Doors 7:30pm',price:'£15',room:'Main room',desc:'Three local bands on one stage. Sample copy.'},
+{d:'Sun 13 Dec',t:'Sunday Session: Christmas',c:'Sunday',time:'Doors 2pm',price:'£8',room:'Main room',desc:'The December Sunday Session. Sample copy.',nhs:1}
+];
+var $=function(s){return document.querySelector(s)},L=$('#list');
+function draw(f){var n=0;L.innerHTML='';EV.forEach(function(e,i){if(f!=='all'&&e.c!==f)return;n++;
+var r=document.createElement('div');r.className='ev';r.tabIndex=0;r.setAttribute('role','button');
+r.innerHTML='<span class="d">'+e.d+'</span><span><span class="t">'+e.t+'</span><br><span class="s">'+e.time+', '+e.room+'</span></span><span>'+e.price+'</span>';
+r.onclick=function(){show(i)};r.onkeydown=function(k){if(k.key==='Enter'||k.key===' '){k.preventDefault();show(i)}};L.appendChild(r)});
+$('#empty').style.display=n?'none':'block'}
+function show(i){var e=EV[i];$('#dtag').textContent=e.c==='Sunday'?'Sunday Sessions':e.c;$('#dt').textContent=e.t;
+$('#df').innerHTML='<dt>Date</dt><dd>'+e.d+'</dd><dt>Time</dt><dd>'+e.time+'</dd><dt>Price</dt><dd>'+e.price+'</dd><dt>Room</dt><dd>'+e.room+'</dd>';
+$('#dd').textContent=e.desc;$('#dn').textContent=e.nhs?'NHS and emergency services staff: discounts available. Message us to claim.':'';$('#dlg').showModal()}
+document.querySelectorAll('[data-f]').forEach(function(b){b.onclick=function(){document.querySelectorAll('[data-f]').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');draw(b.dataset.f)}});
+draw('all');
+$('#dc').onclick=function(){$('#dlg').close()};$('#db').onclick=function(x){x.preventDefault()};
+$('#dlg').addEventListener('click',function(x){if(x.target===this)this.close()});
+$('#enq').onsubmit=function(x){x.preventDefault();$('#ok').style.display='block';this.reset()};
+$('#nl').onsubmit=function(x){x.preventDefault();$('#nlok').style.display='block';this.reset()};
+(function(){var cv=$('#net'),cx=cv.getContext('2d'),S=40,W,H,cols,rows,ox,oy,t=0,col='#000',hx,hy,tx=null,ty=null,last=0,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function ink(){col=getComputedStyle(document.documentElement).getPropertyValue('--ink').trim()||'#000'}
+function size(){var d=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);cols=Math.floor(W/S)+1;rows=Math.floor(H/S)+1;ox=(W-(cols-1)*S)/2;oy=(H-(rows-1)*S)/2;if(hx===undefined){hx=W/2;hy=H/2}ink();draw()}
+function draw(){cx.clearRect(0,0,W,H);var D=[],i,j,k;
+for(i=0;i<cols;i++)for(j=0;j<rows;j++){var x=ox+i*S,y=oy+j*S;D.push([x,y,Math.hypot(x-hx,y-hy)])}
+var s=D.map(function(p){return p[2]}).sort(function(a,b){return a-b}),thr=s[12];
+cx.fillStyle=col;cx.strokeStyle=col;cx.lineWidth=1;
+for(k=0;k<D.length;k++){var p=D[k],near=p[2]<thr,fade=Math.max(.12,1-p[2]/(W*.55)),r=near?3.6:1+2.2*Math.max(0,1-p[2]/(S*4.5));
+if(near){cx.globalAlpha=.5*fade;cx.beginPath();cx.moveTo(hx,hy);cx.lineTo(p[0],p[1]);cx.stroke()}
+cx.globalAlpha=near?.7:.45*fade;cx.beginPath();cx.arc(p[0],p[1],r,0,6.2832);cx.fill()}
+cx.globalAlpha=1;cx.beginPath();cx.arc(hx,hy,6,0,6.2832);cx.fill()}
+function loop(){t+=.016;var now=performance.now(),dx,dy;if(tx!==null&&now-last<3500){dx=tx;dy=ty}else{dx=W/2+Math.sin(t*.55)*W*.3;dy=H/2+Math.sin(t*.8+1)*H*.26}hx+=(dx-hx)*.12;hy+=(dy-hy)*.12;draw();requestAnimationFrame(loop)}
+size();addEventListener('resize',size);matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(){ink();draw()});
+addEventListener('pointermove',function(e){tx=e.clientX;ty=e.clientY;last=performance.now();if(rm){hx=tx;hy=ty;draw()}});
+if(!rm)requestAnimationFrame(loop)})();
+var C=$('#ck'),seen=null;try{seen=localStorage.getItem('ss-consent')}catch(e){}
+if(!seen)C.style.display='block';
+function set(v){try{localStorage.setItem('ss-consent',v)}catch(e){}C.style.display='none'}
+$('#ca').onclick=function(){set('all')};$('#cr').onclick=function(){set('essential')};
+$('#mc').onclick=function(x){x.preventDefault();C.style.display='block'};
+</script>
+</body>
+</html>
