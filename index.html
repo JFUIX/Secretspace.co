@@ -134,6 +134,14 @@ main .ev .t{font-size:1.0625rem;font-weight:600}
 .ss-hero-shell .hero .content h1 .unexpected:after{display:none}
 @media(max-width:700px){.ss-hero-shell .hero .content h1{font-size:clamp(3.1rem,11.4vw,5rem);letter-spacing:-.06em}.ss-hero-shell .hero .content h1 .prelude{font-size:.54em}.ss-hero-shell .hero .brandmark{font-size:1.12rem}}
 
+
+/* Broadcast-style red beacon for the category rail. */
+.ss-hero-shell .category-rail .rail-dot{position:relative;flex:none;width:8px;height:8px;background:#e02020;border-radius:50%;box-shadow:0 0 4px #e0202080,0 0 11px #e0202040;animation:broadcast-blink 1.8s ease-in-out infinite}
+.ss-hero-shell .category-rail .rail-dot:after{content:'';position:absolute;inset:-4px;border:1px solid #e0202070;border-radius:50%;animation:broadcast-ring 1.8s ease-out infinite;pointer-events:none}
+@keyframes broadcast-blink{0%,100%{opacity:.55;box-shadow:0 0 2px #e0202040,0 0 5px #e0202020}35%,60%{opacity:1;box-shadow:0 0 5px #e02020b0,0 0 14px #e0202070,0 0 22px #e0202030}}
+@keyframes broadcast-ring{0%{transform:scale(.65);opacity:0}15%{opacity:.65}85%,100%{transform:scale(1.8);opacity:0}}
+@media(prefers-reduced-motion:reduce){.ss-hero-shell .category-rail .rail-dot{animation:none;opacity:1;box-shadow:0 0 6px #e0202090,0 0 14px #e0202040}.ss-hero-shell .category-rail .rail-dot:after{animation:none;opacity:0}}
+
 </style>
 
 </head>
